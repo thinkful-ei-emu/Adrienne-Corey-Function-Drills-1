@@ -9,8 +9,11 @@ function getYearOfBirth(age) {
 
 
 function createGreeting(name, age) {
-  if(age === isNaN || name === ''){
+  if(age === undefined || name === undefined){
     throw new Error('Arguments not valid');
+  }
+  if(typeof(age) === isNaN || typeof(name) !== 'string'){  //Need guidence
+    throw new TypeError('Arguments not valid types');
   }
   try { 
     const yearOfBirth = getYearOfBirth(age);
@@ -21,5 +24,5 @@ function createGreeting(name, age) {
   }
 }
 
-let output = createGreeting('Corey');
+let output = createGreeting('Corey',30);
 console.log(output);
